@@ -5,7 +5,6 @@ import { actions, reducers, connect } from '../../store/combin';
 import Pagination from './Pagination';
 import EditPopup from './EditPopup';
 import './index.css';
-// import { loginUser } from '@loginApi';
 
 // @withRouter
 const random = (min, max) => {
