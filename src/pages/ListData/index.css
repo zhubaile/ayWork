@@ -1,0 +1,159 @@
+.tableData {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* position: relative; */
+    /* padding-bottom: 60px; */
+}
+.tableData_Pagination{
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+}
+.tableList {
+    width: 96%;
+    margin: 20px auto;
+    /* border: 1px solid rgba(187, 187, 187, 0.5) ; */
+    border-collapse: collapse;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #E2EDFF;
+}
+
+table tr {
+    line-height: 30px;
+    border-bottom: 1px solid rgba(187, 187, 187, 0.5);
+}
+
+table tr th {
+    width: 25%;
+}
+
+table tr td {
+    width: 25%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+.td_hidden {
+    cursor: pointer;
+}
+
+.td_hidden.none {
+    opacity: 0;
+}
+
+/* Pagination */
+.Pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Pagination .Pagination_input {
+    width: 60px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px 0px rgba(229, 229, 229, 1);
+}
+
+.Pagination span {
+    margin: 0 8px;
+}
+
+.Pagination button {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.currents_all {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.currents {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: red;
+    text-align: center;
+    cursor: pointer;
+}
+
+.currents:hover {
+    color: blue;
+}
+
+.currents.active {
+    color: blue;
+}
+
+/* EditPopup */
+.editPopupbox {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -280px;
+    margin-left: -130px;
+    z-index: 8889;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+    padding: 10px;
+    box-shadow: 0px 2px 6px 0px rgba(229, 229, 229, 1);
+    border: 1px solid #BBBBBB;
+}
+
+.editPopupbox_box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(8, 8, 8, 0.53);
+    z-index: 8888;
+}
+
+.editPopupbox h2 {
+    text-align: center;
+}
+
+.editPopupbox ul {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.editPopupbox ul li {
+    margin: 10px 0;
+}
+
+.editPopupbox .addgrouping-btn {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.editPopupbox .addgrouping-btn button {
+    width: 65px;
+    height: 30px;
+    line-height: 20px;
+    border-radius: 4px;
+    background-color: rgba(230, 241, 252, 1);
+    text-align: center;
+    border: 1px solid rgba(163, 208, 253, 1);
+    margin: 0 5px;
+}

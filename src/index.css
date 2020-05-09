@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #F6F9FE;
+    overflow-x:hidden；
+}
+input{
+    outline: none;
+}
+.header{
+    width: 100%;
+    position: relative;
+}
+.header>span{ margin-left: 20px;}
+.header_right{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+.main{
+    overflow-x: auto;
+    position: relative;
+    padding-bottom: 60px;
+}
+.footer{
+    width: 100%;
+}
