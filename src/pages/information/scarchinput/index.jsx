@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-05-12 11:35:23
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-13 15:36:33
+ * @LastEditTime: 2020-05-13 16:14:51
  */
 /* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
@@ -27,7 +27,8 @@ class Search extends Component {
      * @author: zbl
      */
     searchBtn = () => {
-        const valueName = this.inputValue.value;
+        const valueName = this.inputValue.value,
+        current = Number(1);
         this.props.searchInputValue(valueName); //改变输入框的值
         let data = this.props.rlistAllData, // 数据列表的总数据
         newData = [];
@@ -39,6 +40,7 @@ class Search extends Component {
                     }
                 }
             })
+            this.props.currentNum(current); //只要搜索，当前页码变为1
             this.props.listSearchAllData(newData); //改变搜索后的全部数据
         }
 
