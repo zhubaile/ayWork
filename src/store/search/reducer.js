@@ -1,11 +1,10 @@
 /*
  * @Date: 2020-05-12 09:40:49
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-13 11:49:08
+ * @LastEditTime: 2020-05-13 14:58:38
  */
-// import {combineReducers} from "redux"
 
-// 列表总数据
+// information列表总数据
 let LIST_ALL_DATA = [];
 function rlistAllData(state = LIST_ALL_DATA, action) {
     switch (action.type) {
@@ -50,15 +49,7 @@ function rcurrentNum(state = RCURRENT_NUM, action) {
     return state;
 }
 
-// 根据输入框的状态判断是所有数据还是搜索的数据
-
 
 export default {
     rlistAllData, rlistSearchAllData, rlistPartData, rsearchInputValue, rcurrentNum
 };
-
-//   export default {
-//     reducers: {
-//         listDataState,
-//     },
-//   };

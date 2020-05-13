@@ -14,34 +14,31 @@ class Information extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            SearchData: [], // 搜索之前的旧数据
-            data: [], // 总数据
-            current: 1, // 当前页码
-            pageSize: 10, //默认一页10条数据
-            currentAll: 1, //总页码
         };
     }
-    componentDidMount(){
-        this.props.setListData(); // 获取到列表的全部数据
+    // 获取到列表的全部数据
+    componentDidMount() {
+        this.props.setListData(); 
     }
-    // 打开编辑弹框
-    editTwoPopup=(content)=>{
+    /**
+     * @description:listdata界面通过此方法打开编辑弹框，并把值传过去
+     * @author: zbl
+     * @param {content} Object
+     */
+    editTwoPopup = (content) => {
         this.editPopup.editPopupOpen(content);
     }
     render() {
-        // EditPopup => ConfirmData={this.ConfirmData}
-        // Pagination => EditCurrent={this.EditCurrent.bind(this)}
-        const { rlistAllData,rlistSearchAllData,rsearchInputValue } = this.props;
-        let rlistNowAllData = (!rsearchInputValue)?rlistAllData:rlistSearchAllData, // 根据输入框的状态判断是所有数据还是搜索的数据
-        currentAll = Math.ceil(rlistNowAllData.length / pageSize); // 根据当前总数据获取总页数
-        debugger
+        const { rlistAllData, rlistSearchAllData, rsearchInputValue } = this.props;
+        let rlistNowAllData = (!rsearchInputValue) ? rlistAllData : rlistSearchAllData, // 根据输入框的状态判断是所有数据还是搜索的数据
+            currentAll = Math.ceil(rlistNowAllData.length / pageSize); // 根据当前总数据获取总页数
         return (
             <div className='tableData'>
                 <SearchInput />
-                <EditPopup ref={node=>this.editPopup=node} />
-                <ListData editTwoPopup={this.editTwoPopup}/>
+                <EditPopup ref={node => this.editPopup = node} />
+                <ListData editTwoPopup={this.editTwoPopup} />
                 <div className='tableData_Pagination'>
-                    <Pagination hidden={(rlistNowAllData == undefined||rlistNowAllData.length <= 10) ? true : false} currentAll={currentAll} pageSize={pageSize} rlistNowAllData={rlistNowAllData} />
+                    <Pagination hidden={(rlistNowAllData == undefined || rlistNowAllData.length <= 10) ? true : false} currentAll={currentAll} pageSize={pageSize} rlistNowAllData={rlistNowAllData} />
                 </div>
             </div>
         );
@@ -52,12 +49,11 @@ class Information extends Component {
 
 export default connect(
     (state) => {
-        return{ rlistAllData: state.rlistAllData,
-             rlistSearchAllData:state.rlistSearchAllData, 
-             rsearchInputValue:state.rsearchInputValue,
-            //  rlistNowAllData:state.rlistNowAllData,
-            //  rlistPartData, rsearchInputValue, rcurrentNum,
-            }
+        return {
+            rlistAllData: state.rlistAllData,
+            rlistSearchAllData: state.rlistSearchAllData,
+            rsearchInputValue: state.rsearchInputValue,
+        }
     },
     { ...actions.searchAction },
     null

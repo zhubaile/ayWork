@@ -15,15 +15,22 @@ class EditPopup extends Component {
             },
         };
     }
-    // 打开弹窗
+    /**
+    * @description:打开弹窗
+    * @author: zbl
+    * @param {content} Object
+    */
     editPopupOpen = (content, confirm) => {
         this.setState({
             open: true,
             content,
         });
     }
-    // 关闭弹框
-    editPopupClose = (content, confirm) => {
+    /**
+    * @description:关闭弹窗
+    * @author: zbl
+    */
+    editPopupClose = () => {
         this.setState({
             open: false,
             content: {
@@ -33,9 +40,12 @@ class EditPopup extends Component {
                 _id: '',
             },
         });
-        // this.confirmCallBack = confirm;
     }
     //编辑的修改==>有后端传输的数据，可以在此通过ajax直接修改数据
+    /**
+    * @description:修改数据，获取到全部数据和当前修改的数据，通过唯一表示_id进行判断，合并生成新的数据并替换到redux的全部数据里面
+    * @author: zbl
+    */
     addGrouping() {
         const content = this.state.content;
         const { rlistAllData } = this.props;
@@ -43,18 +53,13 @@ class EditPopup extends Component {
         let nowData = []; // 修改过的新数据
         rlistAllData.map((item, index) => {
             nowData.push((item._id == content._id)?content:rlistAllData[index]);
-            // if (item._id == content._id) {
-            //     nowData.push(content)
-            // } else {
-            //     nowData.push(data[index])
-            // }
         })
-        this.props.listAllData(nowData) // 把编辑好的数据替换到全部数据
+        this.props.listAllData(nowData) // 调用action的listAllData方法，把编辑好的数据替换到全部数据
         this.editPopupClose(); // 关闭弹框
     }
     // onChange 更改输入框的值
     editContent(e) {
-        let names = e.target.id, newValue = e.target.value;
+        let names = e.target.id, newValue = e.target.value; // 通过names来判断是那个属性发生了改变
         let contents = Object.assign({}, this.state.content);
         contents[names] = newValue
         this.setState({

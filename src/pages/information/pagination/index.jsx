@@ -11,27 +11,30 @@ class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // current: this.props.current, // 页码
-            // pageSize: 10, //默认一页10条数据
-            // currentAll: this.props.currentAll,
-            // hidden:true,
+
         };
     }
     /**
-     * @param {*} current 
-     * Number
-     */
-    // 点击固定页码修改
+    * @description:点击固定页码修改
+    * @author: zbl
+    * @param {current} Number
+    */
     numEditCurrentBtn(current) {
         this.props.currentNum(current);
     }
-    // 输入框触发修改页码的回车事件
+    /**
+    * @description:输入框触发修改页码的回车事件
+    * @author: zbl
+    */
     inputEditCurrentBtn = (e) => {
         if (e.keyCode === 13) {
             this.replaceCurrent(e)
         }
     }
-    // 页码替换
+    /**
+    * @description:手动输入更改页码
+    * @author: zbl
+    */
     replaceCurrent = (e) => {
         const currentAll = this.props.currentAll; // 全部页码
         let current = Number(this.input.value); // 输入框的页码值
@@ -42,7 +45,12 @@ class Pagination extends Component {
         )
         this.input.value = '';
     }
-    // 加减按钮修改页码
+
+    /**
+    * @description:加减按钮修改页码
+    * @author: zbl
+    * @param {type} String=>'Min','Add'
+    */
     btnEdit(type) {
         let { rcurrentNum, currentAll } = this.props;
         if (type == 'Add') {
@@ -62,13 +70,14 @@ class Pagination extends Component {
         }
         this.props.currentNum(rcurrentNum);
     }
+    /**
+    * @description:通过总页数和当前页数，计算出当前界面上展示的页码数并渲染，待优化
+    * @author: zbl
+    */
     pageSizeTab = () => {
         const { rcurrentNum, currentAll } = this.props;
         var currentAllNum = [], // 所有的总页数,数组形式展现
             TheCurrentAllNum = []; // 当前界面上显示的页数
-
-        // let realData = (!rsearchInputValue)?rlistAllData:rlistSearchAllData;
-        // let currentAll = Math.ceil(realData.length / pageSize); // 获取总页数
 
         // 总页数的数组
         for (let i = 1; i <= currentAll; i++) {
@@ -96,32 +105,7 @@ class Pagination extends Component {
         return pageSizeTab;
     }
     render() {
-        const { rcurrentNum, currentAll, hidden, pageSize } = this.props;
-
-        // var currentAllNum = [], // 所有的总页数
-        // TheCurrentAllNum = []; // 当前界面上显示的数
-        // for (let i = 1; i <= currentAll; i++) {
-        //     currentAllNum.push(i);
-        // }
-
-        // for(let i = current; i < current + 5; i++){
-        //     if(i<=currentAllNum.length){
-        //         TheCurrentAllNum.push(i)
-        //     }
-        // }
-        // const pageSizeTab = (
-        //     <ul className='currents_all'>
-        //         {
-        //             TheCurrentAllNum.map((item, index) => {
-        //                 return (
-        //                     <li key={index} className={item == current ? 'currents active' : 'currents'} id={item} onClick={this.NumEditCurrentBtn.bind(this, item)}>
-        //                         {item}
-        //                     </li>
-        //                 )
-        //             })
-        //         }
-        //     </ul>
-        // )
+        const { rcurrentNum, currentAll, hidden } = this.props;
         if (hidden) return null;
         return (
             <div className='Pagination'>
