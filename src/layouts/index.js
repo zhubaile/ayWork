@@ -1,11 +1,11 @@
 /*
  * @Date: 2020-05-06 18:35:14
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-09 11:55:40
+ * @LastEditTime: 2020-05-11 17:25:18
  */
 import React, { Component, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import MainRouters from './MainRouters';
+import MainRouters from './mainrouters';
 import routerData from '../routerConfig';
 import Footer from './footer';
 import Header from './header';

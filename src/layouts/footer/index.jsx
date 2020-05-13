@@ -1,15 +1,7 @@
-/* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
-import { actions, reducers, connect } from '../../store/combin';
-
 class Footer extends Component {
-  static displayName = 'UserLogin';
-
   constructor(props) {
     super(props);
-    this.state = {
-      Test: this.props.Test,
-    };
   }
 
   render() {
@@ -22,11 +14,4 @@ class Footer extends Component {
   }
 }
 
-// export default Footer;
-export default connect(
-  (state) => {
-    return { Test: state.Test };
-  },
-  { ...actions.Test },
-  null
-)(Footer);
+export default Footer;

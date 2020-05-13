@@ -1,35 +1,37 @@
+/* index starting */
 .tableData {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    /* position: relative; */
-    /* padding-bottom: 60px; */
 }
-.tableData_Pagination{
+
+.tableData_Pagination {
     position: absolute;
     right: 8px;
     bottom: 10px;
 }
+/* index ending */
+
+/* listdata starting */
 .tableList {
     width: 96%;
     margin: 20px auto;
-    /* border: 1px solid rgba(187, 187, 187, 0.5) ; */
     border-collapse: collapse;
     padding: 5px 10px;
     border-radius: 4px;
     background-color: #E2EDFF;
 }
 
-table tr {
+.tableList table tr {
     line-height: 30px;
     border-bottom: 1px solid rgba(187, 187, 187, 0.5);
 }
 
-table tr th {
+.tableList table tr th {
     width: 25%;
 }
 
-table tr td {
+.tableList table tr td {
     width: 25%;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -37,15 +39,17 @@ table tr td {
     padding: 0 5px;
 }
 
-.td_hidden {
+.tableList .td_hidden {
     cursor: pointer;
 }
 
-.td_hidden.none {
+.tableList .td_hidden.none {
     opacity: 0;
 }
 
-/* Pagination */
+/* listdata ending */
+
+/* Pagination starting */
 .Pagination {
     display: flex;
     justify-content: flex-end;
@@ -86,20 +90,22 @@ table tr td {
     width: 40px;
     height: 40px;
     line-height: 40px;
-    color: red;
+    color: blue;
     text-align: center;
     cursor: pointer;
 }
 
 .currents:hover {
-    color: blue;
+    color: red;
 }
 
 .currents.active {
-    color: blue;
+    color: red;
 }
 
-/* EditPopup */
+/* Pagination ending */
+
+/* EditPopup starting */
 .editPopupbox {
     position: fixed;
     width: 300px;
@@ -157,3 +163,41 @@ table tr td {
     border: 1px solid rgba(163, 208, 253, 1);
     margin: 0 5px;
 }
+
+/* EditPopup ending */
+
+/* scarchinput starting */
+.search {
+    position: relative;
+    margin: 0px auto;
+    color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    width: 200px;
+}
+
+.search span {
+    position: absolute;
+    left: 15px;
+    top: 48%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.search input {
+    border: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: black;
+    border-radius: 30px;
+    padding: 8px 15px 8px 40px;
+    display: block;
+    width: 220px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* scarchinput ending */

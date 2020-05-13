@@ -1,3 +1,8 @@
+/*
+ * @Date: 2020-05-07 16:11:27
+ * @LastEditors: gzk
+ * @LastEditTime: 2020-05-11 17:49:43
+ */
 // const rewireLess = require('react-app-rewire-less');
 const { injectBabelPlugin, paths } = require('react-app-rewired');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -17,7 +22,9 @@ module.exports = function override(config, env) {
       ...config.resolve.alias,
       '@src': paths.appSrc, // 在使用中有些 Eslint 规则会报错, 禁用这部分代码的 Eslint 检测即可
       '@ajax':path.join(__dirname,'./src/assets/common/axios.js'),
-      '@router':path.join(__dirname,'./src/apps/routerCon')
+      '@router':path.join(__dirname,'./src/routerConfig.js'),
+      '@indexApi':path.join(__dirname,'./src/api/index.js'),
+      '@combin':path.join(__dirname,'./src/store/combin.js'),
     };
     return config;
   };
