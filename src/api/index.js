@@ -1,3 +1,8 @@
+/*
+ * @Date: 2020-05-07 14:56:26
+ * @LastEditors: gzk
+ * @LastEditTime: 2020-05-13 16:40:46
+ */
   /**
   * @description: ajax封装调用
   * @author: zbl
@@ -12,10 +17,9 @@ export async function getData(params) {
     });
 }
 
-// 发送邮件
-export async function sendMailbox(params) {
-    return ajaxAmd.post({
-        url: '/test.json',
-        data:params,
-    });
-}
+// export async function getDatas(params) {
+//     return ajaxAmd.post({
+//         url: '/app.js',
+//         data:params,
+//     });
+// }

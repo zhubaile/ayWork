@@ -1,12 +1,12 @@
 /*
  * @Date: 2020-05-12 09:40:40
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-13 14:47:28
+ * @LastEditTime: 2020-05-13 17:53:34
  */
 // ======================================================
 // actions 触发reducer 改变 state
 // ======================================================
-import { getData } from '@indexApi'
+import { getData } from '@indexApi';
 
 /**
  * @description: ajax获取information列表的初始全部数据
@@ -77,7 +77,7 @@ function searchInputValue(data) {
  */
 function currentNum(data) {
     return {
-        type: 'RCURRENT_NUM',
+        type: 'CURRENT_NUM',
         data,
     }
 }

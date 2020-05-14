@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-05-12 11:35:23
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-13 16:14:51
+ * @LastEditTime: 2020-05-14 10:03:56
  */
 /* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
@@ -30,7 +30,7 @@ class Search extends Component {
         const valueName = this.inputValue.value,
         current = Number(1);
         this.props.searchInputValue(valueName); //改变输入框的值
-        let data = this.props.rlistAllData, // 数据列表的总数据
+        let data = this.props.searchReducer.slistAllData, // 数据列表的总数据
         newData = [];
         if(valueName){
             data.map((item, index) => {
@@ -59,7 +59,7 @@ class Search extends Component {
 
 export default connect(
     (state) => {
-        return { rlistAllData: state.rlistAllData };
+        return { searchReducer:state.searchReducer, };
     },
     { ...actions.searchAction },
     null

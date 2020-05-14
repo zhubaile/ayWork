@@ -52,30 +52,30 @@ class Pagination extends Component {
     * @param {type} String=>'Min','Add'
     */
     btnEdit(type) {
-        let { rcurrentNum, currentAll } = this.props;
+        let { searchReducer:{scurrentNum}, currentAll } = this.props;
         if (type == 'Add') {
-            if (rcurrentNum >= currentAll) {
+            if (scurrentNum >= currentAll) {
                 alert('当前已经是最后一页了')
                 return false
             } else {
-                rcurrentNum += 1;
+                scurrentNum += 1;
             }
         } else {
-            if (rcurrentNum <= 1) {
+            if (scurrentNum <= 1) {
                 alert('当前已经是第一页了')
                 return false
             } else {
-                rcurrentNum -= 1;
+                scurrentNum -= 1;
             }
         }
-        this.props.currentNum(rcurrentNum);
+        this.props.currentNum(scurrentNum);
     }
     /**
     * @description:通过总页数和当前页数，计算出当前界面上展示的页码数并渲染，待优化
-    * @author: zbl
+    * @author: zbl searchReducer:{scurrentNum},
     */
     pageSizeTab = () => {
-        const { rcurrentNum, currentAll } = this.props;
+        const { searchReducer:{scurrentNum}, currentAll } = this.props;
         var currentAllNum = [], // 所有的总页数,数组形式展现
             TheCurrentAllNum = []; // 当前界面上显示的页数
 
@@ -84,7 +84,7 @@ class Pagination extends Component {
             currentAllNum.push(i);
         }
         // 获取当前五页的值
-        for (let i = rcurrentNum; i < rcurrentNum + 5; i++) {
+        for (let i = scurrentNum; i < scurrentNum + 5; i++) {
             if (i <= currentAllNum.length) {
                 TheCurrentAllNum.push(i)
             }
@@ -94,7 +94,7 @@ class Pagination extends Component {
                 {
                     TheCurrentAllNum.map((item, index) => {
                         return (
-                            <li key={index} className={item == rcurrentNum ? 'currents active' : 'currents'} id={item} onClick={this.numEditCurrentBtn.bind(this, item)}>
+                            <li key={index} className={item == scurrentNum ? 'currents active' : 'currents'} id={item} onClick={this.numEditCurrentBtn.bind(this, item)}>
                                 {item}
                             </li>
                         )
@@ -105,11 +105,11 @@ class Pagination extends Component {
         return pageSizeTab;
     }
     render() {
-        const { rcurrentNum, currentAll, hidden } = this.props;
+        const { searchReducer:{scurrentNum}, currentAll, hidden } = this.props;
         if (hidden) return null;
         return (
             <div className='Pagination'>
-                <span>第{rcurrentNum}页，共{currentAll}页</span>
+                <span>第{scurrentNum}页，共{currentAll}页</span>
                 <input className='Pagination_input' type="text" onKeyDown={this.inputEditCurrentBtn} ref={node => this.input = node} />
                 <button onClick={this.btnEdit.bind(this, 'Min')}>◀</button>
                 {this.pageSizeTab()}
@@ -122,10 +122,7 @@ class Pagination extends Component {
 export default connect(
     (state) => {
         return {
-            rlistAllData: state.rlistAllData,
-            rcurrentNum: state.rcurrentNum,
-            rlistSearchAllData: state.rlistSearchAllData,
-            rsearchInputValue: state.rsearchInputValue,
+            searchReducer:state.searchReducer,
         }
     },
     { ...actions.searchAction },

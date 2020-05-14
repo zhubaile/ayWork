@@ -29,8 +29,8 @@ class Information extends Component {
         this.editPopup.editPopupOpen(content);
     }
     render() {
-        const { rlistAllData, rlistSearchAllData, rsearchInputValue } = this.props;
-        let rlistNowAllData = (!rsearchInputValue) ? rlistAllData : rlistSearchAllData, // 根据输入框的状态判断是所有数据还是搜索的数据
+        const {searchReducer: {slistAllData,ssearchInputValue,slistSearchAllData} } = this.props;
+        let rlistNowAllData = (!ssearchInputValue) ? slistAllData : slistSearchAllData, // 根据输入框的状态判断是所有数据还是搜索的数据
             currentAll = Math.ceil(rlistNowAllData.length / pageSize); // 根据当前总数据获取总页数
         return (
             <div className='tableData'>
@@ -50,9 +50,7 @@ class Information extends Component {
 export default connect(
     (state) => {
         return {
-            rlistAllData: state.rlistAllData,
-            rlistSearchAllData: state.rlistSearchAllData,
-            rsearchInputValue: state.rsearchInputValue,
+            searchReducer:state.searchReducer,
         }
     },
     { ...actions.searchAction },

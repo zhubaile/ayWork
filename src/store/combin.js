@@ -7,13 +7,15 @@ import { connect as reduxConnect } from 'react-redux';
 
 export const connect = reduxConnect;
 export const reducers = {
+  searchReducer:searchReducer.reducer,
   // searchReducer: {...searchReducer.reducers},
   // firstOne: searchReducer.redd,
-  rlistAllData: searchReducer.rlistAllData,
-  rlistPartData: searchReducer.rlistPartData,
-  rlistSearchAllData:searchReducer.rlistSearchAllData,
-  rsearchInputValue:searchReducer.rsearchInputValue,
-  rcurrentNum:searchReducer.rcurrentNum,
+  
+  // rlistAllData: searchReducer.rlistAllData,
+  // rlistPartData: searchReducer.rlistPartData,
+  // rlistSearchAllData:searchReducer.rlistSearchAllData,
+  // rsearchInputValue:searchReducer.rsearchInputValue,
+  // rcurrentNum:searchReducer.rcurrentNum,
 
 };
 export const actions = {
