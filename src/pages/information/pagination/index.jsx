@@ -1,4 +1,3 @@
-/* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
 import { actions, reducers, connect } from '@combin';
 

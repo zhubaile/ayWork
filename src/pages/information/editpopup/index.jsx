@@ -41,7 +41,6 @@ class EditPopup extends Component {
             },
         });
     }
-    //编辑的修改==>有后端传输的数据，可以在此通过ajax直接修改数据
     /**
     * @description:修改数据，获取到全部数据和当前修改的数据，通过唯一表示_id进行判断，合并生成新的数据并替换到redux的全部数据里面
     * @author: zbl

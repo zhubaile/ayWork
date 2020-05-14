@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { actions, reducers, connect } from '@combin';
-// import Pagination from './pagination';
-// import EditPopup from './editpopup';
 import '../index.css';
 
 class ListData extends Component {
@@ -30,7 +28,6 @@ class ListData extends Component {
     htmlList = () => {
         const { searchReducer: {slistAllData,ssearchInputValue,slistSearchAllData,scurrentNum} } = this.props;
         let pageList = []; // 最新10条的数据
-        // let noneData = [{ name: '', age: '', title: '', _id: '' }];
         let realData = (!ssearchInputValue) ? slistAllData : slistSearchAllData;
         pageList = realData.slice((scurrentNum - 1) * 10, scurrentNum * 10);
         console.log(pageList)

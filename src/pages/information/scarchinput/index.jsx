@@ -1,9 +1,8 @@
 /*
  * @Date: 2020-05-12 11:35:23
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-14 10:03:56
+ * @LastEditTime: 2020-05-14 10:26:59
  */
-/* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
 import { actions, reducers, connect } from '@combin';
 import '../index.css';
