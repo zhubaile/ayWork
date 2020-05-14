@@ -44,7 +44,7 @@ class ListData extends Component {
                 </tbody>
                 <tbody>
                     {
-                        pageList.map((item, key) => {
+                        pageList && pageList.map((item, key) => {
                             return (
                                 <tr className="event_list" key={key}>
                                     <td className='tds' align='center' title={item.name}>{item.name}</td>

@@ -50,10 +50,10 @@ class EditPopup extends Component {
         const { searchReducer: {slistAllData,slistSearchAllData}  } = this.props;
 
         let nowData = [],nowSearchData=[]; // 修改过的新数据
-        slistAllData.map((item, index) => {
+        slistAllData && slistAllData.map((item, index) => {
             nowData.push((item._id == content._id)?content:slistAllData[index]);
         })
-        slistSearchAllData.map((item, index) => {
+        slistSearchAllData && slistSearchAllData.map((item, index) => {
             nowSearchData.push((item._id == content._id)?content:slistSearchAllData[index]);
         })
         this.props.listAllData(nowData); // 调用action的listAllData方法，把编辑好的数据替换到全部数据

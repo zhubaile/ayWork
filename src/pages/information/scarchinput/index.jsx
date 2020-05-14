@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-05-12 11:35:23
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-14 10:26:59
+ * @LastEditTime: 2020-05-14 11:35:11
  */
 import React, { Component } from 'react';
 import { actions, reducers, connect } from '@combin';
@@ -32,8 +32,8 @@ class Search extends Component {
         let data = this.props.searchReducer.slistAllData, // 数据列表的总数据
         newData = [];
         if(valueName){
-            data.map((item, index) => {
-                if(item.name!==undefined||item.age!==undefined||item.title!==undefined){
+            data && data.map((item, index) => {
+                if(item.name!==undefined && item.age!==undefined && item.title!==undefined){
                     if (item.name.indexOf(valueName) >= 0 || item.age.indexOf(valueName) >= 0 || item.title.indexOf(valueName) >= 0) {
                         newData.push(item)
                     }
