@@ -1,0 +1,36 @@
+
+/* listdata starting */
+.tableList {
+    width: 96%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #E2EDFF;
+}
+
+.tableList tr {
+    line-height: 30px;
+    border-bottom: 1px solid rgba(187, 187, 187, 0.5);
+}
+
+.tableList tr th {
+    width: 25%;
+}
+
+.tableList tr td {
+    width: 25%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.tableList .td_hidden {
+    cursor: pointer;
+}
+
+.tableList .td_hidden.none {
+    opacity: 0;
+}

@@ -1,11 +1,10 @@
 /*
  * @Date: 2020-05-12 11:35:23
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-14 11:35:11
+ * @LastEditTime: 2020-05-14 14:30:51
  */
 import React, { Component } from 'react';
-import { actions, reducers, connect } from '@combin';
-import '../index.css';
+import { actions, connect } from '@combin';
 
 
 class Search extends Component {

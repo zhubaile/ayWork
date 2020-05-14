@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { actions, reducers, connect } from '@combin';
+import { actions, connect } from '@combin';
 
-
-import '../index.css';
 
 class Pagination extends Component {
     static displayName = 'Pagination';
@@ -37,7 +35,7 @@ class Pagination extends Component {
     replaceCurrent = (e) => {
         const currentAll = this.props.currentAll; // 全部页码
         let current = Number(this.input.value); // 输入框的页码值
-        (current <= currentAll) ? this.props.currentNum(current) : alert('没有该页数据');
+        (current <= currentAll && current>=1) ? this.props.currentNum(current) : alert('没有该页数据');
         this.input.value = '';
     }
 

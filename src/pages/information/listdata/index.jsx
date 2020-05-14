@@ -1,8 +1,6 @@
 /* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import { actions, reducers, connect } from '@combin';
-import '../index.css';
+import { actions, connect } from '@combin';
 
 class ListData extends Component {
     static displayName = 'ListData';
@@ -34,14 +32,14 @@ class ListData extends Component {
 
         const equipmentlist = (
             <table className='tableList'>
-                <tbody>
+                <thead>
                     <tr>
                         <th>姓名</th>
                         <th>年龄</th>
                         <th>爱好</th>
                         <th>操作</th>
                     </tr>
-                </tbody>
+                </thead>
                 <tbody>
                     {
                         pageList && pageList.map((item, key) => {
@@ -63,7 +61,7 @@ class ListData extends Component {
     }
     render() {
         return (
-            <div className='tableList'>
+            <div>
                 {this.htmlList()}
             </div>
         );

@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-05-12 09:40:40
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-13 17:53:34
+ * @LastEditTime: 2020-05-14 14:31:32
  */
 // ======================================================
 // actions 触发reducer 改变 state
@@ -18,8 +18,6 @@ function setListData() {
         getData().then((res) => {
             let data = res.data;
             dispatch(listAllData(data));
-
-            dispatch(listPartData(data));
         })
     }
 

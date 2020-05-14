@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { actions, reducers, connect } from '@combin';
-import '../index.css';
+import { actions, connect } from '@combin';
 
 class EditPopup extends Component {
     constructor(props) {
