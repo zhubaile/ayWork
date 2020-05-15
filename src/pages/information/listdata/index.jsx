@@ -27,8 +27,7 @@ class ListData extends Component {
         const { searchReducer: {slistAllData,ssearchInputValue,slistSearchAllData,scurrentNum} } = this.props;
         let pageList = []; // 最新10条的数据
         let realData = (!ssearchInputValue) ? slistAllData : slistSearchAllData;
-        pageList = realData.slice((scurrentNum - 1) * 10, scurrentNum * 10);
-        console.log(pageList)
+        pageList = (realData&&realData.length)?realData.slice((scurrentNum - 1) * 10, scurrentNum * 10):null;
 
         const equipmentlist = (
             <table className='tableList'>
@@ -42,9 +41,9 @@ class ListData extends Component {
                 </thead>
                 <tbody>
                     {
-                        pageList && pageList.map((item, key) => {
+                        pageList && pageList.map((item) => {
                             return (
-                                <tr className="event_list" key={key}>
+                                <tr className="event_list" key={item._id}>
                                     <td className='tds' align='center' title={item.name}>{item.name}</td>
                                     <td align='center'>{item.age}</td>
                                     <td align='center' title={item.title}>{item.title}</td>

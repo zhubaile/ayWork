@@ -75,7 +75,7 @@ class Pagination extends Component {
                 {
                     theCurrentAllNum && theCurrentAllNum.map((item, index) => {
                         return (
-                            <li key={index} className={item == scurrentNum ? 'currents active' : 'currents'} id={item} onClick={this.numEditCurrentBtn.bind(this, item)}>
+                            <li key={`li${index}`} className={item == scurrentNum ? 'currents active' : 'currents'} id={item} onClick={this.numEditCurrentBtn.bind(this, item)}>
                                 {item}
                             </li>
                         )

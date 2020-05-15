@@ -38,7 +38,7 @@ class Information extends Component {
             },
             {
                 title:"操作",
-                render:(text,value,index)=><a href="javascript:;" className='operation' onClick={()=>{
+                render:(text,value,index)=><a href="javascrips:;" className='operation' onClick={()=>{
                     this.setState({
                         isOpen: true,
                         content:<Remove params={value} removeBtnParams={this.removeBtnParams} />,
@@ -69,6 +69,7 @@ class Information extends Component {
             contentPaeams:params,
         })
     }
+    
     // 通用弹框组件Dialog的确定按钮
     dialogConfirmBtn(){
         const { contentPaeams } = this.state;
@@ -80,7 +81,6 @@ class Information extends Component {
         slistSearchAllData && slistSearchAllData.map((item, index) => {
             nowSearchData.push((item._id == contentPaeams._id)?contentPaeams:slistSearchAllData[index]);
         })
-        debugger
         this.props.listAllData(nowData); // 调用action的listAllData方法，把编辑好的数据替换到全部数据
         this.props.listSearchAllData(nowSearchData); // 调用action的listSearchAllData方法，把编辑好的数据替换到全部的搜索数据
 
@@ -91,7 +91,7 @@ class Information extends Component {
         const {searchReducer: {slistAllData,ssearchInputValue,slistSearchAllData,scurrentNum} } = this.props;
         let rlistNowAllData = (!ssearchInputValue) ? slistAllData : slistSearchAllData, // 根据输入框的状态判断是所有数据还是搜索的数据
             currentAll = Math.ceil(rlistNowAllData.length / pageSize); // 根据当前总数据获取总页数
-            let pageList = rlistNowAllData.slice((scurrentNum - 1) * 10, scurrentNum * 10); // 通用组件使用的当前界面展示数据
+            let pageList = (rlistNowAllData && rlistNowAllData.length)?rlistNowAllData.slice((scurrentNum - 1) * 10, scurrentNum * 10):null; // 通用组件使用的当前界面展示数据
         return (
             <div className='tableData'>
                 <SearchInput />

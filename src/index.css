@@ -1,33 +1,53 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     background: #F6F9FE;
-    overflow-x:hidden；
+    overflow-x: hidden；
 }
-input{
+
+button {
     outline: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
 }
-.header{
+
+.header {
     width: 100%;
     position: relative;
 }
-.header>span{ margin-left: 20px;}
-.header_right{
+
+.header>span {
+    margin-left: 20px;
+}
+
+.header_right {
     position: absolute;
     right: 10px;
     top: 8px;
 }
-.main{
+
+.main {
     overflow-x: auto;
     position: relative;
     padding-bottom: 60px;
 }
-.footer{
+
+.footer {
     width: 100%;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
 }
