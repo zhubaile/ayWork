@@ -1,12 +1,12 @@
 /*
  * @Date: 2020-05-07 14:56:26
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-13 16:40:46
+ * @LastEditTime: 2020-05-15 17:17:27
  */
-  /**
-  * @description: ajax封装调用
-  * @author: zbl
-  */
+/**
+* @description: ajax封装调用
+* @author: zbl
+*/
 import ajaxAmd from '@ajax';
 // import ajaxAmd from '../../assets/common/axios';
 // 菜单查询接口

@@ -16,7 +16,7 @@ export default class Dialog extends Component {
         return (
             <div className="addgrouping-btn">
                 {btns.map((value, index) => (
-                    <button key={`btn${index}`} onClick={value.onClick || (()=>{console.log('12345679')})} >{value.title}</button>
+                    <button key={`btn${index}`} onClick={value.onClick || (() => { console.log('12345679') })} >{value.title}</button>
                 ))}
             </div>
         )
