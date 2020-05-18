@@ -46,17 +46,7 @@ class EditPopup extends Component {
     */
     addGrouping() {
         const content = this.state.content;
-        const { searchReducer: {slistAllData,slistSearchAllData}  } = this.props;
-
-        let nowData = [],nowSearchData=[]; // 修改过的新数据
-        slistAllData && slistAllData.map((item, index) => {
-            nowData.push((item._id == content._id)?content:slistAllData[index]);
-        });
-        slistSearchAllData && slistSearchAllData.map((item, index) => {
-            nowSearchData.push((item._id == content._id)?content:slistSearchAllData[index]);
-        });
-        this.props.listAllData(nowData);// 调用action的listAllData方法，把编辑好的数据替换到全部数据
-        this.props.listSearchAllData(nowSearchData);// 调用action的listSearchAllData方法，把编辑好的数据替换到全部的搜索数据
+        this.props.setCompileBtn(content);// 调用action的listAllData方法，把编辑好的数据替换到全部数据
         this.editPopupClose(); // 关闭弹框
     }
     // onChange 更改输入框的值
@@ -103,7 +93,7 @@ class EditPopup extends Component {
 export default connect(
     (state) => {
         return {
-            searchReducer:state.searchReducer,
+            searchReducer: state.searchReducer,
         };
     },
     { ...actions.searchAction },

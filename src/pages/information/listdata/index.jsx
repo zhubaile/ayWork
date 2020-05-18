@@ -20,15 +20,11 @@ class ListData extends Component {
         this.props.editTwoPopup(content);
     }
     /**
-    * @description:从redux取全部列表数据，将取出来的数据根据当前页拆分为10条数据渲染
+    * @description:从redux取当前列表数据
     * @author: zbl
     */
     htmlList = () => {
-        const { searchReducer: {slistAllData,ssearchInputValue,slistSearchAllData,scurrentNum} } = this.props;
-        let pageList = []; // 最新10条的数据
-        let realData = (!ssearchInputValue) ? slistAllData : slistSearchAllData;
-        pageList = (realData&&realData.length)?realData.slice((scurrentNum - 1) * 10, scurrentNum * 10):null;
-
+        const { searchReducer: { slistPartData } } = this.props;
         const equipmentlist = (
             <table className='tableList'>
                 <thead>
@@ -41,7 +37,7 @@ class ListData extends Component {
                 </thead>
                 <tbody>
                     {
-                        pageList && pageList.map((item) => {
+                        slistPartData && slistPartData.map((item) => {
                             return (
                                 <tr className="event_list" key={item._id}>
                                     <td className='tds' align='center' title={item.name}>{item.name}</td>
@@ -55,7 +51,7 @@ class ListData extends Component {
                 </tbody>
             </table>
         );
-        const HtmlList = (pageList == undefined || pageList.length == 0) ? <span>暂无数据</span> : equipmentlist;
+        const HtmlList = (!(slistPartData || slistPartData.length)) ? <span>暂无数据</span> : equipmentlist;
         return HtmlList;
     }
     render() {
@@ -70,7 +66,7 @@ class ListData extends Component {
 export default connect(
     (state) => {
         return {
-            searchReducer:state.searchReducer,
+            searchReducer: state.searchReducer,
         };
     },
     { ...actions.searchAction },

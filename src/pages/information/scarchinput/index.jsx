@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-05-12 11:35:23
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-15 18:29:38
+ * @LastEditTime: 2020-05-18 16:56:55
  */
 import React, { Component } from 'react';
 import { actions, connect } from '@combin';
@@ -25,23 +25,8 @@ class Search extends Component {
      * @author: zbl
      */
     searchBtn = () => {
-        const valueName = this.inputValue.value,
-        current = Number(1);
-        this.props.searchInputValue(valueName); //改变输入框的值
-        let data = this.props.searchReducer.slistAllData, // 数据列表的总数据
-        newData = [];
-        if(valueName){
-            data && data.map((item, index) => {
-                if(item.name!==undefined && item.age!==undefined && item.title!==undefined){
-                    if (item.name.indexOf(valueName) >= 0 || item.age.indexOf(valueName) >= 0 || item.title.indexOf(valueName) >= 0) {
-                        newData.push(item)
-                    }
-                }
-            })
-            this.props.currentNum(current); //只要搜索，当前页码变为1
-            this.props.listSearchAllData(newData); //改变搜索后的全部数据
-        }
-
+        const valueName = this.inputValue.value;
+        this.props.setSearchInputValue(valueName); //改变输入框的值
     }
 
     render() {
@@ -57,7 +42,7 @@ class Search extends Component {
 
 export default connect(
     (state) => {
-        return { searchReducer:state.searchReducer, };
+        return { searchReducer: state.searchReducer, };
     },
     { ...actions.searchAction },
     null
