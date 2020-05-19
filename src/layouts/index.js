@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-05-06 18:35:14
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-18 17:28:12
+ * @LastEditTime: 2020-05-19 15:12:44
  */
 import React, { Component, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -17,7 +17,7 @@ export default class UserLayout extends Component {
             <div>
                 <Header />
                 <main className='main'>
-                    <Suspense>
+                    <Suspense fallback='loading...'>
                         <Switch>
                             {routerData.map((item, index) => {
                                 return item.component ? (
