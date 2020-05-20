@@ -76,17 +76,18 @@ class Information extends Component {
     }
     render() {
         const { isOpen, content } = this.state;
-        const { searchReducer: { slistPartData, stotalPageNum } } = this.props;
+        const { searchReducer: { listPartData, totalPageNum } } = this.props;
+        debugger
         return (
             <div className='tableData'>
                 <SearchInput />
                 <EditPopup ref={node => this.editPopup = node} />
                 <ListData editTwoPopup={this.editTwoPopup} />
                 <div className='tableData_Pagination'>
-                    <Pagination hidden={(stotalPageNum === undefined || stotalPageNum <= 1) ? true : false} />
+                    <Pagination hidden={(totalPageNum === undefined || totalPageNum <= 1) ? true : false} />
                 </div>
 
-                <List columns={this.columns} data={slistPartData} />
+                <List columns={this.columns} data={listPartData} />
                 <Dialog isOpen={isOpen} content={content} title="弹出框"
                     btns={[
                         { title: "取消", onClick: () => { this.setState({ isOpen: false }) } },

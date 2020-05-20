@@ -24,7 +24,8 @@ class ListData extends Component {
     * @author: zbl
     */
     htmlList = () => {
-        const { searchReducer: { slistPartData } } = this.props;
+        const { searchReducer: { listPartData } } = this.props;
+        debugger
         const equipmentlist = (
             <table className='tableList'>
                 <thead>
@@ -37,9 +38,10 @@ class ListData extends Component {
                 </thead>
                 <tbody>
                     {
-                        slistPartData && slistPartData.map((item) => {
+                        listPartData && listPartData.map((item,index) => {
+                            debugger
                             return (
-                                <tr className="event_list" key={item._id}>
+                                <tr className="event_list" key={`tr${item._id}${index}`}>
                                     <td className='tds' align='center' title={item.name}>{item.name}</td>
                                     <td align='center'>{item.age}</td>
                                     <td align='center' title={item.title}>{item.title}</td>
@@ -51,7 +53,8 @@ class ListData extends Component {
                 </tbody>
             </table>
         );
-        const HtmlList = (!(slistPartData || slistPartData.length)) ? <span>暂无数据</span> : equipmentlist;
+        const HtmlList = (!listPartData || listPartData.length==0) ? <span>暂无数据</span> : equipmentlist;
+        debugger
         return HtmlList;
     }
     render() {

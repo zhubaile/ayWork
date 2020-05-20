@@ -1,19 +1,19 @@
 /*
  * @Date: 2020-05-12 09:40:49
  * @LastEditors: gzk
- * @LastEditTime: 2020-05-18 17:15:51
+ * @LastEditTime: 2020-05-20 09:51:58
  */
 
 // information列表总数据
 
 let defaultState = {
-    slistAllData: [],// information列表总数据
-    slistSearchAllData: [], // information列表搜索的全部数据
-    slistPartData: [],// 列表在当前界面展示的数据
-    ssearchInputValue: "",// 搜索输入框的值
-    scurrentNum: 1, // 当前数据的页码
-    spageSize: 10, //每一页多少条数据
-    stotalPageNum: 1, // 默认总页数
+    listAllData: [],// information列表总数据
+    listSearchAllData: [], // information列表搜索的全部数据
+    listPartData: [],// 列表在当前界面展示的数据
+    searchInputValue: "",// 搜索输入框的值
+    currentNum: 1, // 当前数据的页码
+    pageSize: 10, //每一页多少条数据
+    totalPageNum: 1, // 默认总页数
 };
 
 function reducer(state = defaultState, action) {
